@@ -1,23 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import Card from './components/Card';
+import Hero from './components/Hero';
+import Nav from './components/Nav';
+import data from './data';
+import imgGroup from './images/Group.png'
+
+
 
 function App() {
+  const cardArr = data.map(card => {
+    return <Card 
+    key={card.id}
+    imgStar="Star.png"
+    {...card}
+   />
+  })
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Nav img='https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Airbnb_Logo_Bélo.svg/1280px-Airbnb_Logo_Bélo.svg.png'/>
+      <Hero img={imgGroup}/>
+      <section className="cards-list">
+        {cardArr}
+      </section>
     </div>
   );
 }
